@@ -1,0 +1,14 @@
+* imagemover.py
+
+This is a tool for people who have large, unsorted collections of files which 
+they want to move into keyword-based subdirectories.
+
+** How to use?
+
+1. rename all files you want moved with a preceding keyword of your own choosing (img7238.jpg -> keyword img7238.jpg)
+2. execute imagemover: ''imagemover "keyword"''. This will move all files starting with "keyword" into the subdirectory "keyword" and remove "keyword" from the filenames. If a subdirectory does not exist yet, it will be created. (example: keyword img7328.jpg becomes ./keyword/img7328.jpg)
+
+** How to install?
+
+1. make sure you have python installed and in your path. 
+2. ''sudo make install''
