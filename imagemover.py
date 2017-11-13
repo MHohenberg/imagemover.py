@@ -19,8 +19,28 @@ def movePictures(keyword):
     return
 
 if (len(sys.argv) > 1):
-    movePictures(sys.argv[1])
+    if (sys.argv[1] == '-d'):
+
+        workedOn = []
+
+        inf = os.walk('.')
+        for x in inf:
+            subfolder = x[0][2:]
+            try:
+                subfolder = subfolder[:subfolder.index('/',0)]
+            except:
+                subfolder = subfolder
+
+            if subfolder != "":
+                if not subfolder in workedOn:
+                    workedOn.append(subfolder)
+                    print "Arbeite an: "+subfolder
+                    movePictures(subfolder)
+    else:
+        movePictures(sys.argv[1])
 else:
     print "Moves files into a subdirectory based on keyword."
     print "Example: keyword filename.jpg -> ./keyword/filename.jpg"
-    print "Usage: imagemover.py [KEYWORD]"
+    print "Usage: imagemover.py [-d|KEYWORD]"
+    print "Parameters:   "
+    print "     -d     Instead of a KEYWORD, uses existing directory names as keywords"
