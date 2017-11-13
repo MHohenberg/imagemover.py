@@ -23,7 +23,7 @@ if (len(sys.argv) > 1):
 
         workedOn = []
 
-        inf = os.walk('.')
+        inf = os.walk('.', True, None, True)
         for x in inf:
             subfolder = x[0][2:]
             try:
